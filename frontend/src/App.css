@@ -3,7 +3,7 @@
   justify-content: left;
   width: 100%; /* Ancho relativo al contenedor padre */
   height: 97.5vh; /* Altura fija */
-  border: 2px solid #ccc; /* Opcional: Borde decorativo */
+  /* border: 2px solid #ccc; Opcional: Borde decorativo */
 }
 .dashboard-container {
   display: flex;

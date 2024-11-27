@@ -42,6 +42,8 @@ function MetricasDashboard(){
         })
         .catch((error) => console.error('Error al cargar los datos:', error));
     }, []);
+    // Introducir panel de botones para seleccionar la gráfica deseada
+
     return (
         <div>
         <div className='dashboard-container'>
@@ -49,6 +51,7 @@ function MetricasDashboard(){
         <div id="contenedor2" ref={contenedorRef2} className="bokeh-container"></div>
         <div id="contenedor3" ref={contenedorRef3} className="bokeh-container"></div>
         </div>
+        {/* <div id="selector" ref={contenedorRef4} className="bokeh-container1"></div> */}
         <div id="contenedor4" ref={contenedorRef4} className="bokeh-container1"></div>
         </div>
     )
