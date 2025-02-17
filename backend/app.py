@@ -1,8 +1,13 @@
 from flask_cors import CORS
 from flask import Flask,request
+import pandas as pd
 from prueba import crear_prueba
 from ventas_fecha import devolver_ventas_fecha
-from prueba_grafica_grande import crear_prueba_grafica_grande
+from grafica_grande import crear_prueba_grafica_grande
+from productos_mas_vendidos import devolver_productos_mas_vendidos
+from numero_devoluciones_fecha import devolver_numero_devoluciones_fecha
+from estacionalidad_ventas import devuelve_estacionalidad_ventas
+
 
 app = Flask(__name__)
 
@@ -22,6 +27,21 @@ def prueba_grafica_grande():
 def ventas_fecha():
     param = request.get_json()
     return devolver_ventas_fecha(param)
+
+@app.route('/api/productos_mas_vendidos',methods = ['POST'])
+def productos_mas_vendidos():
+    param = request.get_json()
+    return devolver_productos_mas_vendidos(param)
+
+@app.route('/api/numero_devoluciones_fecha',methods = ['POST'])
+def numero_devoluciones_fecha():
+    param = request.get_json()
+    return devolver_numero_devoluciones_fecha(param)
+
+@app.route('/api/estacionalidadVentas',methods = ['POST'])
+def estacionalidadVentas():
+    param = request.get_json()
+    return devuelve_estacionalidad_ventas(param)
 
 
 if __name__ == "__main__":

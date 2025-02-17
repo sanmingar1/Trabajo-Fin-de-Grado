@@ -1,0 +1,67 @@
+/* Estacionalidad - Ventas por año */
+/* Contenedor principal */
+.estacionalidad-ventas {
+    font-family: Arial, sans-serif;
+    max-width: 50vh;
+    /* margin: 1vh; */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título principal */
+.estacionalidad-ventas h2 {
+    font-size: 1.5em;
+    margin-bottom: 1vh;
+    /* margin-left: 10vh; */
+    
+    color: #333;
+}
+
+/* Formulario para seleccionar el año */
+.estacionalidad-ventas form {
+    margin-bottom: 1vh;
+    
+}
+
+.estacionalidad-ventas label {
+    font-size: 1.1em;
+    color: #333;
+    /* margin-right: 1vh; */
+}
+
+/* Estilo del selector de año */
+.estacionalidad-ventas select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.estacionalidad-ventas select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Contenedor del gráfico */
+.bokeh-container {
+    margin-top: 20px;
+    min-height: 300px; /* Aseguramos que el contenedor tenga altura para el gráfico */
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mensaje cuando no se ha seleccionado un gráfico */
+.bokeh-container p {
+    font-size: 1em;
+    color: #555;
+}

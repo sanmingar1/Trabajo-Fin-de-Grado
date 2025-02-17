@@ -1,0 +1,74 @@
+
+/*Estadisticas - Productos mas vendidos*/
+/* Contenedor principal */
+.ventas_fecha {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Título principal */
+  .ventas_fecha h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Lista de productos */
+  .ventas_fecha ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .ventas_fecha li {
+    background-color: #e9f5ff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
+  .ventas_fecha li strong {
+    color: #0056b3;
+  }
+  
+  /* Mensaje de error */
+  .ventas_fecha p {
+    margin: 10px 0;
+    font-size: 0.9em;
+  }
+  
+  .ventas_fecha p[style*="color: red"] {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Formulario de fecha */
+  .ventas_fecha form {
+    margin-top: 20px;
+  }
+  
+  .ventas_fecha input[type="date"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .ventas_fecha input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  /*Estadisticas - Productos mas vendidos*/

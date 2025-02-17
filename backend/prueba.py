@@ -5,6 +5,7 @@ import pandas as pd
 from bokeh.embed import json_item
 
 
+
 def crear_prueba():
     dataset = pd.read_csv('.\data\dataset_formateado.csv')
     # print(dataset.head())
@@ -39,3 +40,4 @@ def crear_prueba():
     return Response(grafica,mimetype='application/json')
 
 
+crear_prueba()

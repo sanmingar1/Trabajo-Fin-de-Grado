@@ -1,0 +1,23 @@
+/* GRÁFICA GRANDE */
+
+.SelectorGrafica{
+    width: 160vh;
+    /* border: 3px solid rgb(255, 0, 247); */
+    /* margin:2.5 vh; */
+    display: flex;
+    align-items: center;
+  }
+  .bokeh-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 113vh;
+    height: 500px;
+    margin-left: 5vh;
+    padding: 10px;
+    /* border: 3px solid #e5ff00; */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  /* GRÁFICA GRANDE */

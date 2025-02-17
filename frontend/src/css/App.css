@@ -1,0 +1,163 @@
+/*CONTENEDOR GLOBAL*/
+.contenedor{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin-left:100vh; */
+  /* width:80%; */
+  /* border: 3px solid rgb(211, 222, 0); */
+}
+
+
+/*CONTENEDOR QUE TIENE APP y SELECTOR GRÁFICA*/
+.contenedor_interno{
+  
+  display:flex;
+  flex-direction: column;
+  /* margin-left:100vh; */
+  width:159vh;
+  /* border: 3px solid rgb(255, 0, 0); */
+}
+
+
+
+/*CONTENEDOR APP QUE TIENE VENTAS POR FECHA Y METRICAS DASHBOARD*/
+.App{
+  display: flex; /* Permite manejar contenido interno con flexbox */
+  justify-content: left;
+  width: 150vh; /* Ancho relativo al contenedor padre */
+  height: 60vh; /* Altura fija */
+  /* border: 3px solid #00f9dc;  */
+}
+
+
+/*CONTENEDOR QUE TIENE LAS DOS GRÁFICAS CON INFORMACIÓN BÁSICA*/
+.metricas_dashboard{
+  /* border: 3px solid rgb(255, 0, 0); */
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  padding: 1vh;
+  height:50vh;
+}
+
+
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5vh; 
+  margin: 5vh;
+  
+  margin-top: 1vh;
+  max-width: 160vh;
+}
+/*CONTENEDOR QUE TIENE LAS DOS GRÁFICAS CON INFORMACIÓN BÁSICA*/
+
+/*VENTAS POR FECHA*/
+/* Contenedor principal */
+.ventas_fecha {
+  font-family: Arial, sans-serif;
+  max-width: 50vh;
+  height:35vh;
+  /* margin: 0.5vh; */
+  /* margin-right:1vh;  */
+  /* margin-top: 1vh ; */
+  /* padding: 20px; */
+  /* border: 3px solid #2b00ff; */
+  background-color: #fff;
+}
+
+/* Encabezado */
+.ventas_fecha h2 {
+  font-size: 1.2em;
+  color: #333;
+  text-align: center;
+  margin:1vh;
+}
+
+/* Formulario */
+.ventas_fecha form {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 1vh;
+
+}
+
+.ventas_fecha label {
+  font-size: 1.5em;
+  color: #555;
+}
+
+.ventas_fecha input[type="date"] {
+  padding: 8px;
+  font-size: 1.2em;
+  /* border: 1px solid #ddd; */
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+  background-color: #f0f8ff;
+}
+
+.ventas_fecha input[type="date"]:focus {
+  /* border-color: #007bff; */
+  outline: none;
+}
+
+/* Resultado */
+#info {
+  margin-top: 1vh;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f0f8ff;
+  color: #333;
+  font-size: 2em;
+  font-size: bold;
+  text-align: center;
+}
+
+
+/*VENTAS POR FECHA*/
+/*CONTENEDOR QUE TIENE APP y SELECTOR GRÁFICA*/
+/*CONTENEDOR APP QUE TIENE VENTAS POR FECHA Y METRICAS DASHBOARD*/
+
+.estadisticas{
+  margin-left: -6vh;
+  width:50vh;
+  height:100%;
+  /* border:3px solid rºgb(255, 0, 179); */
+}
+.bokeh-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.bokeh-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 143vh;
+  height: 500px;
+  margin-left: 5vh;
+  padding: 10px;
+  /* border: 3px solid #00fe48; */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+/*CONTENEDOR GLOBAL*/
+
+
+
