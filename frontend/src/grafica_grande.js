@@ -4,6 +4,7 @@ function SelectorGrafica(){
     let [tipoGrafica,setTipoGrafica] = useState('')
     let [fecha,setFecha] = useState('')
     const contenedorRef4 = useRef(null); // Referencia al cuarto contenedor
+    
     useEffect(() => {
             fetch('http://localhost:5000/api/prueba_grafica_grande',{
                 method: 'POST',
@@ -36,6 +37,12 @@ function SelectorGrafica(){
                     <option value=''></option>
                     <option value='ventas_diarias_totales'>Ventas Diarias Totales</option>
                     <option value='productos_mas_vendidos'>Productos Más Vendidos</option>
+                    <option value='total-ventas-hora'>Total Kilos Vendidos Por Hora</option>
+                    
+                    {/* <option value='precio-medio-categoria'>Evolución Precio Medio Por Categoría</option> */}
+
+
+                    
                 </select>
             </form>
             <div id="columna_izquierda_inferior_grafica" ref={contenedorRef4} className="columna_izquierda_inferior_grafica"></div>

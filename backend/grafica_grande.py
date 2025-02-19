@@ -46,6 +46,26 @@ def crear_prueba_grafica_grande(params):
         p.xgrid.grid_line_color = None
         p.y_range.start = 0
         p.xaxis.major_label_orientation = 1.2
+    elif tipo_grafica == 'media-ventas-hora':
+        df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
+
+        # Extraer la hora para el histograma
+        df['Hour'] = df['Time'].dt.hour
+
+        # Agrupar las ventas por hora
+        hourly_sales = df.groupby('Hour')['Quantity Sold (kilo)'].sum().reset_index()
+
+        # Preparar los datos para Bokeh
+        source = ColumnDataSource(hourly_sales)
+
+        # Crear el histograma
+        p = figure(title="Distribución de Ventas por Hora (kg)", height=400, width=600, 
+                    x_axis_label="Hora del Día", y_axis_label="Cantidad Vendida (kg)")
+
+        p.vbar(x='Hour', top='Quantity Sold (kilo)', width=0.9, source=source, color="coral")
+
+        p.xgrid.grid_line_color = None
+        p.y_range.start = 0
 
     grafica = json.dumps(json_item(p,'contenedor'))
     return Response(grafica, mimetype='application/json')
