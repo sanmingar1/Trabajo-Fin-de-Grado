@@ -9,5 +9,5 @@ def devolver_numero_devoluciones_fecha(param):
 
     dataset_filtrado = dataset[dataset['Date'] == fecha]
 
-    numero_devoluciones = dataset_filtrado[dataset_filtrado['Sale or Return'] == 'return'].shape[1]
+    numero_devoluciones = dataset_filtrado[dataset_filtrado['Sale or Return'] == 'return'].shape[0]
     return jsonify(numero_devoluciones)

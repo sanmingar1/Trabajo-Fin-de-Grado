@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function VentasPorFecha() {
-  const [fecha, setFecha] = useState("2023-06-30"); // Fecha predeterminada
+function VentasPorFecha({fecha_seleccionada}) {
   const [info, setInfo] = useState(null); // Respuesta del servidor
 
   useEffect(() => {
@@ -10,7 +9,7 @@ function VentasPorFecha() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ fecha })
+            body: JSON.stringify({ fecha: fecha_seleccionada })
     })
         .then((response) => {
             if (!response.ok) throw new Error('Error en la solicitud');
@@ -21,29 +20,18 @@ function VentasPorFecha() {
             setInfo(data);
         })
         .catch((error) => console.error('Error:', error));
-     }, [fecha]);
+     }, [fecha_seleccionada]);
 
 
   return (
     <div id="ventas_fecha" className="ventas_fecha">
          {info && (
-        <div id="info">
+        <div className="ventas-fecha-result">
           <h3>Resultado de Ventas</h3>
           <p>{info}€</p>
           </div>
       )}
-      <form>
-        <input
-          type="date"
-          id="fecha"
-          value={fecha}
-          onChange={(e) => setFecha(e.target.value)}
-          min="2020-07-01" 
-          max="2023-06-30" 
-          required
-        />
-      </form>
-      
+   
      
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import SelectorGrafica from './selector_grafica_grande';
+import SelectorGrafica from './grafica_grande';
 
 function MetricasDashboard(){
     const contenedorRef = useRef(null); // Referencia al primer contenedor
@@ -8,7 +8,7 @@ function MetricasDashboard(){
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/prueba')
+        fetch('http://localhost:5000/api/clustering')
         .then((response) => {
             if (!response.ok) throw Error('Error en la solicitud');
             return response.json();

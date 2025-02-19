@@ -1,23 +1,23 @@
 /* GRÁFICA GRANDE */
 
-.SelectorGrafica{
-    width: 160vh;
+.columna_izquierda_inferior{
+    width: 50%;
     /* border: 3px solid rgb(255, 0, 247); */
     /* margin:2.5 vh; */
     display: flex;
     align-items: center;
   }
-  .bokeh-container2 {
+  .columna_izquierda_inferior_grafica {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 113vh;
-    height: 500px;
-    margin-left: 5vh;
-    padding: 10px;
+    width: 80vh;
+    height: 50vh;
+    margin-left: 1vh;
+    /* padding: 1vh; */
     /* border: 3px solid #e5ff00; */
     border-radius: 8px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   /* GRÁFICA GRANDE */

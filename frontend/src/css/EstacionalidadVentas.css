@@ -2,12 +2,12 @@
 /* Contenedor principal */
 .estacionalidad-ventas {
     font-family: Arial, sans-serif;
-    max-width: 50vh;
+    width: 50vh;
     /* margin: 1vh; */
     padding: 20px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #df2b2b; */
     border-radius: 10px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -39,7 +39,7 @@
     font-size: 1em;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #fff;
+    /* background-color: #fff; */
     transition: border-color 0.3s ease;
 }
 
@@ -49,10 +49,10 @@
 }
 
 /* Contenedor del gráfico */
-.bokeh-container {
-    margin-top: 20px;
-    min-height: 300px; /* Aseguramos que el contenedor tenga altura para el gráfico */
-    background-color: #fff;
+.estacionalidad-ventas-grafico {
+    /* margin-top: 20px; */
+    height: 100%; /* Aseguramos que el contenedor tenga altura para el gráfico */
+    /* background-color: #fff; */
     border-radius: 10px;
     border: 1px solid #ddd;
     display: flex;
@@ -61,7 +61,7 @@
 }
 
 /* Mensaje cuando no se ha seleccionado un gráfico */
-.bokeh-container p {
+.estacionalidad-ventas-grafico p {
     font-size: 1em;
     color: #555;
 }

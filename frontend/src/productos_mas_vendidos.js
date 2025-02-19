@@ -1,41 +1,41 @@
 import React, { useEffect, useState } from "react";
 
-function ProductoMasVendido() {
-  const [fecha, setFecha] = useState("2023-06-30"); // Fecha predeterminada
+function ProductoMasVendido({ fecha_seleccionada }) {
   const [productos, setProductos] = useState([]); // Lista de productos más vendidos
   const [error, setError] = useState(null); // Estado de error
 
   useEffect(() => {
+    if (!fecha_seleccionada) return; // Previene llamadas con valores no válidos
+
     fetch("http://localhost:5000/api/productos_mas_vendidos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fecha }),
+      body: JSON.stringify({ fecha: fecha_seleccionada }),
     })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error en la solicitud al servidor");
         }
-        return response.json(); // Convertir la respuesta en JSON
+        return response.json();
       })
       .then((data) => {
-        setProductos(data); // Actualiza el estado con la lista de productos
-        setError(null); // Limpia cualquier error previo
+        setProductos(data);
+        setError(null);
       })
       .catch((err) => {
         console.error("Error:", err);
-        setError(err.message); // Maneja el error
+        setError(err.message);
       });
-  }, [fecha]); // Ejecutar cuando cambia la fecha
+  }, [fecha_seleccionada]); // Se ejecuta cuando cambia `fecha_seleccionada`
 
   return (
-    <div id="ventas_fecha" className="ventas_fecha">
-      <h2>Productos Más Vendidos</h2>
-      {/* Mostrar errores si los hay */}
+    <div id="productos_mas_vendidos" className="productos_mas_vendidos">
+      <h3>Productos Más Vendidos</h3>
+
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
-      {/* Mostrar lista de productos */}
       {productos.length > 0 ? (
         <ul>
           {productos.map((producto, index) => (
@@ -47,22 +47,9 @@ function ProductoMasVendido() {
       ) : (
         <p>No hay datos para la fecha seleccionada.</p>
       )}
-
-       {/* Formulario de selección de fecha */}
-       <form>
-
-        <input
-          type="date"
-          id="fecha"
-          value={fecha}
-          onChange={(e) => setFecha(e.target.value)}
-          min="2020-07-01" // Fecha mínima
-          max="2023-06-30" // Fecha máxima
-          required
-        />
-      </form>
     </div>
   );
 }
 
 export default ProductoMasVendido;
+  

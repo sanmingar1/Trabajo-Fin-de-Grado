@@ -7,7 +7,7 @@ from grafica_grande import crear_prueba_grafica_grande
 from productos_mas_vendidos import devolver_productos_mas_vendidos
 from numero_devoluciones_fecha import devolver_numero_devoluciones_fecha
 from estacionalidad_ventas import devuelve_estacionalidad_ventas
-
+from clustering import top_n
 
 app = Flask(__name__)
 
@@ -18,9 +18,10 @@ CORS(app)
 def prueba():
     return crear_prueba()
 
-@app.route('/api/prueba_grafica_grande', methods = ['GET'])
+@app.route('/api/prueba_grafica_grande', methods = ['POST'])
 def prueba_grafica_grande():
-    return crear_prueba_grafica_grande()
+    params = request.get_json()
+    return crear_prueba_grafica_grande(params)
 
 
 @app.route('/api/ventas_fecha', methods = ['POST'])
@@ -42,6 +43,11 @@ def numero_devoluciones_fecha():
 def estacionalidadVentas():
     param = request.get_json()
     return devuelve_estacionalidad_ventas(param)
+
+@app.route('/api/clustering', methods = ['POST'])
+def clustering():
+    param = request.get_json()
+    return top_n(param)
 
 
 if __name__ == "__main__":

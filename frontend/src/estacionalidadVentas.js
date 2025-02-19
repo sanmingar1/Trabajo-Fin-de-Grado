@@ -20,27 +20,28 @@ function EstacionalidadVentas() {
       })
       .then((data) => {
         console.log("Datos recibidos desde el servidor (Donut):", data);
-        setGrafico(data); // Guarda los datos del gráfico
-        window.Bokeh.embed.embed_item(grafico, contenedorRef.current);
+        setGrafico(data); // Guarda los datos del gráfico 
       })
       .catch((error) => {
         console.error("Error al cargar el gráfico:", error);
         setGrafico(null); // Limpia el gráfico en caso de error
+        
       });
   }, [anyo]); // Ejecuta el efecto al cambiar el año
 
-  // useEffect(() => {
-  //   if (grafico && contenedorRef.current) {
-  //     // Limpia el contenedor antes de agregar el gráfico
-  //     contenedorRef.current.innerHTML = '';
-  //     // Inserta el gráfico en el contenedor
-  //     window.Bokeh.embed.embed_item(grafico, contenedorRef.current);
-  //   }
-  // }, [grafico]); // Solo se ejecuta cuando el gráfico cambia
+  useEffect(() => {
+    if (grafico && contenedorRef.current) {
+      // Limpia el contenedor antes de agregar el gráfico
+      contenedorRef.current.innerHTML = "";
+
+      // Inserta el gráfico en el contenedor
+      window.Bokeh.embed.embed_item(grafico, contenedorRef.current);
+    }
+  }, [grafico]); // Solo se ejecuta cuando el gráfico cambia
 
   return (
     <div id="estacionalidad-ventas" className="estacionalidad-ventas">
-      <h2>Estacionalidad de Ventas</h2>
+      {/* <h2>Estacionalidad de Ventas</h2> */}
       <form>
         <label htmlFor="anyo">Selecciona un año:</label>
         <select
@@ -56,7 +57,7 @@ function EstacionalidadVentas() {
         </select>
       </form>
 
-      <div id="grafico-container" className="bokeh-container" ref={contenedorRef}>
+      <div id="estacionalidad-ventas-grafico" className="estacionalidad-ventas-grafico" ref={contenedorRef}>
         {!grafico && <p>Selecciona un año para visualizar el gráfico.</p>}
       </div>
     </div>
