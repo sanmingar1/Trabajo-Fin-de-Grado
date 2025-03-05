@@ -46,7 +46,7 @@ def crear_prueba_grafica_grande(params):
         p.xgrid.grid_line_color = None
         p.y_range.start = 0
         p.xaxis.major_label_orientation = 1.2
-    elif tipo_grafica == 'media-ventas-hora':
+    elif tipo_grafica == 'total-ventas-hora':
         df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 
         # Extraer la hora para el histograma

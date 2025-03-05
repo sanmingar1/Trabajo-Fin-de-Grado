@@ -1,17 +1,18 @@
 /* GRÁFICA GRANDE */
 
-.columna_izquierda_inferior{
-    width: 50%;
+.columna_izquierda_inferior-grafica-selector{
+    width: 60%;
     /* border: 3px solid rgb(255, 0, 247); */
     /* margin:2.5 vh; */
     display: flex;
+    justify-content: left;
     align-items: center;
   }
   .columna_izquierda_inferior_grafica {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 80vh;
+    align-items: left;
+    width: 61vh;
     height: 50vh;
     margin-left: 1vh;
     /* padding: 1vh; */

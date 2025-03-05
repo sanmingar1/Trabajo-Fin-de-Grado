@@ -27,9 +27,9 @@ function SelectorGrafica(){
         }, [tipoGrafica,fecha]);
 
     return (
-        <div id='columna_izquierda_inferior' className="columna_izquierda_inferior">
+        <div id='columna_izquierda_inferior-grafica-selector' className="columna_izquierda_inferior-grafica-selector">
             <form>
-                <label>Selecciona Que Visualizar</label>
+                <label>Selecciona Qué Visualizar</label>
                 <select
                 value = {tipoGrafica}
                 onChange={(e) => setTipoGrafica(e.target.value)}

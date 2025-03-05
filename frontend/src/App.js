@@ -40,10 +40,10 @@ const [fecha, setFecha] = useState("2023-06-30"); // Fecha predeterminada
           <NumeroDevoluciones fecha_seleccionada={fecha}/>
           <ProductosMasVendidos fecha_seleccionada={fecha} />
         </div>
-        <div className='columna_izquierda_inferior'>
+        <div className="columna_izquierda_inferior">
           <SelectorGrafica/>
+          <ProductosMasVendidos fecha_seleccionada={"2023-06-06"} />
         </div>
-    
      </div>
       <div className='columna_derecha'>
         <Clustering/>
