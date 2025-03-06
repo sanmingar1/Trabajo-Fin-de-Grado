@@ -19,7 +19,7 @@
   width:75%;
   height: 100%;
   /* margin-left:5vh; */
-  /* border: 3px solid rgb(255, 0, 0); */
+  border: 3px solid rgb(255, 0, 0);
 }
 
 
@@ -60,7 +60,7 @@
 .columna_izquierda_inferior{
   display: flex; /* Permite manejar contenido interno con flexbox */
   justify-content: space-evenly;
-  gap: 5vh;
+  gap: 2vh;
   width: 100%; /* Ancho relativo al contenedor padre */
   height: 30%; /* Altura fija */
   margin-bottom: 5vh;

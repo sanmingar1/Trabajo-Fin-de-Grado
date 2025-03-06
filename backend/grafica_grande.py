@@ -12,9 +12,12 @@ def crear_prueba_grafica_grande(params):
     tipo_grafica = params['tipo_grafica']
     fechaInicio = params['fechaInicio']
     fechaFin = params['fechaFin']
+
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+
     if tipo_grafica == 'ventas_diarias_totales':
         # Convertir la columna de fecha a formato datetime
-        df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+        
         # Agrupar las ventas diarias
         daily_sales = df.groupby('Date')['Quantity Sold (kilo)'].sum().reset_index()
         # Preparar los datos para Bokeh
@@ -28,7 +31,8 @@ def crear_prueba_grafica_grande(params):
         p.y_range.start = 0
     elif tipo_grafica == 'productos_mas_vendidos':
         # Productos más vendidos (gráfico de barras)
-
+        df = df[df['Date'] >= fechaInicio]
+        df = df[df['Date'] <= fechaFin]
         # Agrupar las ventas por producto
         product_sales = df.groupby('Item Name')['Quantity Sold (kilo)'].sum().reset_index()
 
@@ -48,7 +52,6 @@ def crear_prueba_grafica_grande(params):
         p.y_range.start = 0
         p.xaxis.major_label_orientation = 1.2
     elif tipo_grafica == 'total-ventas-hora':
-        df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 
         # Extraer la hora para el histograma
         df['Hour'] = df['Time'].dt.hour

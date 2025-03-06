@@ -2,8 +2,8 @@ import React,{useEffect,useRef,useState} from "react";
 
 function SelectorGrafica(){
     let [tipoGrafica,setTipoGrafica] = useState('')
-    let [fechaInicio,setFechaInicio] = useState('')
-    let [fechaFin,setFechaFin] = useState('')
+    let [fechaInicio,setFechaInicio] = useState('2020-07-01')
+    let [fechaFin,setFechaFin] = useState('2023-06-30')
     const contenedorRef4 = useRef(null); // Referencia al cuarto contenedor
     
     useEffect(() => {
@@ -27,16 +27,25 @@ function SelectorGrafica(){
             .catch((error) => console.error('Error al cargar los datos:', error));
         }, [tipoGrafica,fechaInicio,fechaFin]);
 
+        const handleFechaInicio = (e) => {
+            setFechaInicio('2020-07-01');
+            e.preventDefault();
+        }
+        const handleFechaFin = (e) => {
+            setFechaFin('2023-06-30');
+            e.preventDefault();
+        }
+
+
     return (
         <div id='columna_izquierda_inferior-grafica-selector' className="columna_izquierda_inferior-grafica-selector">
             <div className='selectores'>
             <form>
-                <label>Selecciona Gráfica</label>
                 <select
                 value = {tipoGrafica}
                 onChange={(e) => setTipoGrafica(e.target.value)}
                 required>
-                    <option value=''></option>
+                    <option value=''>Selecciona Gráfica</option>
                     <option value='ventas_diarias_totales'>Ventas Diarias Totales</option>
                     <option value='productos_mas_vendidos'>Productos Más Vendidos</option>
                     <option value='total-ventas-hora'>Total Kilos Vendidos Por Hora</option>
@@ -47,10 +56,11 @@ function SelectorGrafica(){
             {tipoGrafica === 'productos_mas_vendidos' && (
                 <div className='selectores-fecha-grafica-grande'>
                 <form>
-                    <label>Fecha Inicio</label>
+                    <button onClick={(e) => handleFechaInicio(e)}>Fecha Inicio</button>
                     <input
                     type='date'
                     value={fechaInicio}
+                    defaultValue={"2020-07-01"}
                     onChange={(e) => setFechaInicio(e.target.value)}
                     min="2020-07-01" // Fecha mínima
                     max="2023-06-30" // Fecha máxima
@@ -58,9 +68,10 @@ function SelectorGrafica(){
                     />
                 </form>
                 <form>
-                    <label>Fecha Fin</label>
+                    <button className='botonFechaFin' onClick={(e) => handleFechaFin(e)}>Fecha Fin</button>
                     <input
                     type='date'
+                    defaultValue={"2023-06-30"}
                     value={fechaFin}
                     onChange={(e) => setFechaFin(e.target.value)}
                     min="2020-07-01" // Fecha mínima
