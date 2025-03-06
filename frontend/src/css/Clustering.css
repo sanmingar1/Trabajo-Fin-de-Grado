@@ -1,14 +1,16 @@
 .clustering {
-    font-family: 'Arial', sans-serif;
     width: 50vh;
     padding: 20px;
     /* background-color: #f9f9f9; */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+    transition: transform 0.3s ease-in-out;
     height:75%;
     /* margin-left: 2.5vh; */
     /* border: 3px solid black; */
+}
+.clustering:hover {
+    transform: scale(1.02);
 }
 
 .clustering h2 {

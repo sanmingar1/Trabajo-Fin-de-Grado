@@ -10,7 +10,8 @@ def crear_prueba_grafica_grande(params):
     df = pd.read_csv('data/dataset_formateado.csv')
 
     tipo_grafica = params['tipo_grafica']
-    fecha = params['fecha']
+    fechaInicio = params['fechaInicio']
+    fechaFin = params['fechaFin']
     if tipo_grafica == 'ventas_diarias_totales':
         # Convertir la columna de fecha a formato datetime
         df['Date'] = pd.to_datetime(df['Date'], errors='coerce')

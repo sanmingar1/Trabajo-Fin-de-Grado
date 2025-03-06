@@ -8,10 +8,13 @@
     /* border: 1px solid #df2b2b; */
     border-radius: 10px;
     /* background-color: #f9f9f9; */
+    transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
+.estacionalidad-ventas:hover {
+    transform: scale(1.02);
+}
 /* Título principal */
 .estacionalidad-ventas h2 {
     font-size: 1.5em;

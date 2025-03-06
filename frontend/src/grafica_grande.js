@@ -2,7 +2,8 @@ import React,{useEffect,useRef,useState} from "react";
 
 function SelectorGrafica(){
     let [tipoGrafica,setTipoGrafica] = useState('')
-    let [fecha,setFecha] = useState('')
+    let [fechaInicio,setFechaInicio] = useState('')
+    let [fechaFin,setFechaFin] = useState('')
     const contenedorRef4 = useRef(null); // Referencia al cuarto contenedor
     
     useEffect(() => {
@@ -11,7 +12,7 @@ function SelectorGrafica(){
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({tipo_grafica: tipoGrafica,fecha: fecha}),
+                body: JSON.stringify({tipo_grafica: tipoGrafica,fechaInicio: fechaInicio,fechaFin: fechaFin}),
             })
             .then((response) => {
                 if (!response.ok) throw Error('Error en la solicitud');
@@ -24,12 +25,13 @@ function SelectorGrafica(){
                 }
             })
             .catch((error) => console.error('Error al cargar los datos:', error));
-        }, [tipoGrafica,fecha]);
+        }, [tipoGrafica,fechaInicio,fechaFin]);
 
     return (
         <div id='columna_izquierda_inferior-grafica-selector' className="columna_izquierda_inferior-grafica-selector">
+            <div className='selectores'>
             <form>
-                <label>Selecciona Qué Visualizar</label>
+                <label>Selecciona Gráfica</label>
                 <select
                 value = {tipoGrafica}
                 onChange={(e) => setTipoGrafica(e.target.value)}
@@ -40,11 +42,35 @@ function SelectorGrafica(){
                     <option value='total-ventas-hora'>Total Kilos Vendidos Por Hora</option>
                     
                     {/* <option value='precio-medio-categoria'>Evolución Precio Medio Por Categoría</option> */}
-
-
-                    
                 </select>
             </form>
+            {tipoGrafica === 'productos_mas_vendidos' && (
+                <div className='selectores-fecha-grafica-grande'>
+                <form>
+                    <label>Fecha Inicio</label>
+                    <input
+                    type='date'
+                    value={fechaInicio}
+                    onChange={(e) => setFechaInicio(e.target.value)}
+                    min="2020-07-01" // Fecha mínima
+                    max="2023-06-30" // Fecha máxima
+                    required
+                    />
+                </form>
+                <form>
+                    <label>Fecha Fin</label>
+                    <input
+                    type='date'
+                    value={fechaFin}
+                    onChange={(e) => setFechaFin(e.target.value)}
+                    min="2020-07-01" // Fecha mínima
+                    max="2023-06-30" // Fecha máxima
+                    required
+                    />
+                </form>
+                </div>
+            ) }
+            </div>
             <div id="columna_izquierda_inferior_grafica" ref={contenedorRef4} className="columna_izquierda_inferior_grafica"></div>
         </div>
     );

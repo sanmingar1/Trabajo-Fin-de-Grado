@@ -9,6 +9,10 @@
     /* padding: 20vh; */
     /* border: 3px solid #2b00ff; */
     /* background-color: #fff; */
+    transition: transform 0.3s ease-in-out;
+  }
+  .ventas_fecha:hover {
+    transform: scale(1.02);
   }
   
   /* Encabezado */

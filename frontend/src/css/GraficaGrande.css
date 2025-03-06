@@ -6,8 +6,12 @@
     /* margin:2.5 vh; */
     display: flex;
     justify-content: left;
+    flex-direction:row ;
     align-items: center;
+    
   }
+
+
   .columna_izquierda_inferior_grafica {
     display: flex;
     justify-content: center;
@@ -19,6 +23,45 @@
     /* border: 3px solid #e5ff00; */
     border-radius: 8px;
     /* background-color: #f9f9f9; */
+    transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   /* GRÁFICA GRANDE */
+  .columna_izquierda_inferior_grafica:hover {
+    transform: scale(1.02);
+  }
+
+.selectores-fecha-grafica-grande{
+  background: #ffffff;
+  /* border: 3px solid black; */
+  flex-direction: column;
+  border-radius: 8px; 
+  /* margin-right: 1vh; */
+  display: flex;
+  justify-content: center;
+
+
+}
+.selectores-fecha-grafica-grande input[type="date"] {
+  padding: 8px 12px;
+  font-size: 2vh;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  color: #333;
+  transition: all 0.3s ease;
+  margin-left:1vh;
+  outline: none;
+  cursor: pointer;
+}
+
+.selectores select {
+  /* width: 50%; */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background: #f8f8f8;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

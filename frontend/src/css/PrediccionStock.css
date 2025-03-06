@@ -1,0 +1,113 @@
+.prediccion_stock {
+    width: 40%;
+    margin-right: 3vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 3vh;
+    transition: transform 0.3s ease-in-out;
+
+    /* border:1px solid #f70000; */
+    
+}
+
+.prediccion_stock:hover {
+    transform: scale(1.02);
+    /* border: 2px solid green; */
+}
+
+.prediccion_stock_arriba{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+.boton-y-selector-prediccion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 1px solid black; */
+}
+
+.prediccion_stock h2 {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1vh;
+    margin-right: 2vh;
+
+}
+
+.prediccion_stock h3 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #555;
+}
+
+.boton-y-selector-prediccion button {
+    border-radius: 6px;
+    border: none;
+    padding: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-y-selector-prediccion button:hover {
+    background: #45a049;
+}
+
+.boton-y-selector-prediccion select {
+    /* width: 80%; */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: #f8f8f8;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-y-selector-prediccion select:hover {
+    border-color: #77c21b;
+}
+
+.texto-prediccion {
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #77c21b;
+    padding-left: 15px;
+    font-size: 1em;
+    color: #444;
+    /* border: 1px solid green; */
+}
+
+.resultado-prediccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centra los elementos en el eje cruzado */
+    justify-content: center; /* Centra los elementos en el eje principal */
+    margin-top: 3vh;
+    gap: 10px;
+    width: 80%;
+    height: 50%;
+    border-radius: 12px;
+    /* background-color: #e3e1e1; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Agrega un poco de espacio interno */
+}
+
+/* Estiliza los títulos dentro de resultado-prediccion */
+.resultado-prediccion h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0; /* Elimina márgenes innecesarios */
+    align-self: flex-start; /* Asegura que se alinee correctamente */
+}

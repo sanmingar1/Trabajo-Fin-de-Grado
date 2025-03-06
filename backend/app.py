@@ -8,6 +8,7 @@ from productos_mas_vendidos import devolver_productos_mas_vendidos
 from numero_devoluciones_fecha import devolver_numero_devoluciones_fecha
 from estacionalidad_ventas import devuelve_estacionalidad_ventas
 from clustering import top_n
+from prediccion_stock import predecir_stock
 
 app = Flask(__name__)
 
@@ -49,6 +50,17 @@ def clustering():
     param = request.get_json()
     return top_n(param)
 
+
+@app.route('/api/prediccion_stock1', methods = ['POST'])
+def prediccion_stock1():
+    param = request.get_json()
+    return predecir_stock(param)
+
+@app.route('/api/lista_productos', methods = ['GET'])
+def lista_productos():
+    df = pd.read_csv('data/dataset_formateado.csv')
+    productos = df['Item Name'].unique()
+    return {'productos': productos.tolist()}
 
 if __name__ == "__main__":
     app.run(port=5000, debug=False)

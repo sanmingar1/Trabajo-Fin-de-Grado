@@ -5,11 +5,15 @@
     width:25%;
     height:40%;
     /* border: 3px solid #068e3d; */
-
+    transition: transform 0.3s ease-in-out;
     border-radius: 10px;
     /* background-color: #f9f9f9; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+  }
+  .numero_devoluciones:hover {
+    
+    transform: scale(1.02);
   }
   
   /* Encabezado */
@@ -60,5 +64,5 @@
     text-align: center;
   }
   
-  
+
   

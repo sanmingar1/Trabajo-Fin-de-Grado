@@ -5,6 +5,7 @@ import './css/EstacionalidadVentas.css'
 import './css/ventas_fecha.css'
 import './css/numero_devoluciones.css'
 import './css/Clustering.css'
+import './css/PrediccionStock.css'
 import React, { useEffect, useRef,useState } from 'react';
 import VentasPorFecha from './ventas_fecha';
 import MetricasDashboard from './metricas_dashboard';
@@ -13,6 +14,7 @@ import NumeroDevoluciones from './numero_devoluciones';
 import ProductosMasVendidos from './productos_mas_vendidos';
 import EstacionalidadVentas from './estacionalidadVentas';
 import Clustering from './clustering';
+import PrediccionStock from './PrediccionStock'
 
 function App() {
 
@@ -42,7 +44,7 @@ const [fecha, setFecha] = useState("2023-06-30"); // Fecha predeterminada
         </div>
         <div className="columna_izquierda_inferior">
           <SelectorGrafica/>
-          <ProductosMasVendidos fecha_seleccionada={"2023-06-06"} />
+          {<PrediccionStock/>}
         </div>
      </div>
       <div className='columna_derecha'>

@@ -12,6 +12,10 @@
     /* background-color: #f9f9f9; */
     box-shadow: 0 5px 9px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  .productos_mas_vendidos:hover {
+    transform: scale(1.02);
   }
   
   /* Título principal */
