@@ -1,7 +1,7 @@
 from flask_cors import CORS
 from flask import Flask,request
 import pandas as pd
-from prueba import crear_prueba
+# from prueba import crear_prueba
 from ventas_fecha import devolver_ventas_fecha
 from grafica_grande import crear_prueba_grafica_grande
 from productos_mas_vendidos import devolver_productos_mas_vendidos
