@@ -6,7 +6,7 @@ function NumeroDevoluciones({ fecha_seleccionada }) {
   useEffect(() => {
     if (!fecha_seleccionada) return; // Previene llamadas con valores no válidos
 
-    fetch("http://localhost:5000/api/numero_devoluciones_fecha", {
+    fetch("https://flask-backend-vpgz.onrender.com/api/numero_devoluciones_fecha", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

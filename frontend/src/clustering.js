@@ -7,7 +7,7 @@ function Clustering() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/clustering", {
+        fetch("https://flask-backend-vpgz.onrender.com/api/clustering", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ n_clusters }),

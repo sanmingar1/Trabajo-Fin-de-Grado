@@ -7,7 +7,7 @@ function ProductoMasVendido({ fecha_seleccionada }) {
   useEffect(() => {
     if (!fecha_seleccionada) return; // Previene llamadas con valores no válidos
 
-    fetch("http://localhost:5000/api/productos_mas_vendidos", {
+    fetch("https://flask-backend-vpgz.onrender.com/api/productos_mas_vendidos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ function EstacionalidadVentas() {
 
   useEffect(() => {
     // Solicita el gráfico al backend mediante POST al cambiar el año
-    fetch("http://localhost:5000/api/estacionalidadVentas", {
+    fetch("https://flask-backend-vpgz.onrender.com/api/estacionalidadVentas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
