@@ -15,9 +15,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/api/prueba', methods = ['GET'])
-def prueba():
-    return crear_prueba()
+# @app.route('/api/prueba', methods = ['GET'])
+# def prueba():
+#     return crear_prueba()
 
 @app.route('/api/prueba_grafica_grande', methods = ['POST'])
 def prueba_grafica_grande():
