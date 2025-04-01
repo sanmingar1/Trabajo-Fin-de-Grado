@@ -7,7 +7,7 @@ function SelectorGrafica(){
     const contenedorRef4 = useRef(null); // Referencia al cuarto contenedor
     
     useEffect(() => {
-            fetch('https://flask-backend-vpgz.onrender.com/api/prueba_grafica_grande',{
+            fetch('http://localhost:5000/api/prueba_grafica_grande',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

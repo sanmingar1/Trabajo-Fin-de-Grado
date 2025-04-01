@@ -12,7 +12,7 @@ function PrediccionStock() {
 
     // Cargar lista de productos desde el backend
     useEffect(() => {
-        fetch("https://flask-backend-vpgz.onrender.com/api/lista_productos")
+        fetch("http://localhost:5000/api/lista_productos")
             .then((response) => {
                 if (!response.ok) throw new Error("Error al cargar la lista de productos.");
                 return response.json();
@@ -77,7 +77,7 @@ function PrediccionStock() {
         
 
         try {
-            const response = await fetch("https://flask-backend-vpgz.onrender.com/api/prediccion_stock1", {
+            const response = await fetch("http://localhost:5000/api/prediccion_stock1", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ intervalo, producto: productoSeleccionado }),

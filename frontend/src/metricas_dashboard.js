@@ -8,7 +8,7 @@ function MetricasDashboard(){
     
 
     useEffect(() => {
-        fetch('https://flask-backend-vpgz.onrender.com/api/clustering')
+        fetch('http://localhost:5000/api/clustering')
         .then((response) => {
             if (!response.ok) throw Error('Error en la solicitud');
             return response.json();

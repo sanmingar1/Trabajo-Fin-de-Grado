@@ -4,7 +4,7 @@ function VentasPorFecha({fecha_seleccionada}) {
   const [info, setInfo] = useState(null); // Respuesta del servidor
 
   useEffect(() => {
-        fetch("https://flask-backend-vpgz.onrender.com/api/ventas_fecha", {
+        fetch("http://localhost:5000/api/ventas_fecha", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
