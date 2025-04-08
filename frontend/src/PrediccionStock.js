@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 function PrediccionStock() {
-    const [intervalo, setIntervalo] = useState("");
+    // const [intervalo, setIntervalo] = useState("");
     const [productos, setProductos] = useState([]);
     const [busqueda, setBusqueda] = useState("");
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
@@ -23,7 +23,7 @@ function PrediccionStock() {
 
     // Manejar selección de intervalo
     const handleIntervaloChange = (e) => {
-        setIntervalo(e.target.value);
+        // setIntervalo(e.target.value);
         setProductoSeleccionado(null);
         setBusqueda("");
         setMostrarSugerencias(false);
@@ -63,10 +63,6 @@ function PrediccionStock() {
 
     // Manejar generación de predicción con validación de entrada
     const generarPrediccion = async () => {
-        if (!intervalo) {
-            alert("Por favor, selecciona un intervalo.");
-            return;
-        }
 
         if (!productoSeleccionado) {
             alert("Por favor, selecciona un producto válido.");
@@ -80,7 +76,7 @@ function PrediccionStock() {
             const response = await fetch("http://localhost:5000/api/prediccion_stock1", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ intervalo, producto: productoSeleccionado }),
+                body: JSON.stringify({ /*intervalo, */producto: productoSeleccionado }),
             });
             if (!response.ok) throw new Error("Error al generar la predicción.");
 
@@ -102,17 +98,17 @@ function PrediccionStock() {
             </div>
 
             <div className="boton-y-selector-prediccion">
-                <form>
+                {/* <form>
                     <select value={intervalo} onChange={handleIntervaloChange}>
                         <option value="">Seleccione Cuando Predecir</option>
                         <option value="Diariamente">Mañana</option>
                         <option value="Semanalmente">Próxima Semana</option>
                         <option value="Mensualmente">Próximo Mes</option>
                     </select>
-                </form>
+                </form> */}
 
                 {/* Mostrar el buscador solo si hay un intervalo seleccionado */}
-                {intervalo && (
+                { (
                     <div className="buscador-productos" ref={listaRef}>
                         <input
                             type="text"

@@ -37,6 +37,7 @@ def crear_prueba_grafica_grande(params):
         product_sales = df.groupby('Item Name')['Quantity Sold (kilo)'].sum().reset_index()
 
         # Ordenar de mayor a menor
+        print("HOLA")
         product_sales = product_sales.sort_values(by='Quantity Sold (kilo)', ascending=False).head(10)
 
         # Preparar los datos para Bokeh
@@ -53,6 +54,7 @@ def crear_prueba_grafica_grande(params):
         p.xaxis.major_label_orientation = 1.2
     elif tipo_grafica == 'total-ventas-hora':
 
+        df['Time'] = pd.to_datetime(df['Time'], format='%H:%M:%S', errors='coerce')
         # Extraer la hora para el histograma
         df['Hour'] = df['Time'].dt.hour
 
