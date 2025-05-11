@@ -11,23 +11,39 @@ function PrediccionStock() {
     const listaRef = useRef(null);
 
     // Cargar lista de productos desde el backend
-    useEffect(() => {
-        fetch("http://localhost:5000/api/lista_productos")
-            .then((response) => {
-                if (!response.ok) throw new Error("Error al cargar la lista de productos.");
-                return response.json();
-            })
-            .then((data) => setProductos(data.productos))
-            .catch((error) => console.error("Error:", error));
-    }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:5000/api/lista_productos")
+    //         .then((response) => {
+    //             if (!response.ok) throw new Error("Error al cargar la lista de productos.");
+    //             return response.json();
+    //         })
+    //         .then((data) => setProductos(data.productos))
+    //         .catch((error) => console.error("Error:", error));
+    // }, []);
 
-    // Manejar selección de intervalo
-    const handleIntervaloChange = (e) => {
-        // setIntervalo(e.target.value);
-        setProductoSeleccionado(null);
-        setBusqueda("");
-        setMostrarSugerencias(false);
-    };
+    // Lista de productos obtenidad a través del cuaderno de Jupyter
+    // Son los porductos que tienen que tienen mas de 1000 datos
+    const lista_productos = ['7 Colour Pepper (1)', 'Amaranth', 'Apricot Bao Mushroom (1)',
+        'Bell Pepper (1)', 'Broccoli', 'Caixin', 'Chinese Cabbage',
+        'Chinese Caterpillar Fungus Flowers', 'Eggplant (2)',
+        'Foreign Garland Chrysanthemum ', 'Green Eggplant (1)',
+        'Green Hot Peppers', 'High Melon (1)', 'Honghu Lotus Root',
+        'Hongshujian', 'Huangbaicai (2)', 'Luosi Pepper', 'Millet Pepper',
+        'Muercai', 'Naibaicai', 'Net Lotus Root (1)', 'Perilla',
+        'Qinggengsanhua', 'Red Lotus Root Zone', 'Round Eggplant (2)',
+        'Shanghaiqing', 'Spinach', 'The Red Bell Pepper (1)',
+        'The White Mushroom (Bag)', 'Water Chestnut (Lingjiao)', 'Wawacai',
+        'Wild Lotus Root (1)', 'Wuhu Green Pepper (1)',
+        'Xixia Black Mushroom (1)', 'Yellow Xincai (1)', 'Yunnan Lettuces',
+        'Yunnan Shengcai', 'Zhuyecai'];
+
+        
+        useEffect(() => {
+            setProductos(lista_productos);
+          }, []);
+          
+
+
 
     // Manejar cambios en la búsqueda con restricción de caracteres
     const handleBusquedaChange = (e) => {
@@ -98,14 +114,6 @@ function PrediccionStock() {
             </div>
 
             <div className="boton-y-selector-prediccion">
-                {/* <form>
-                    <select value={intervalo} onChange={handleIntervaloChange}>
-                        <option value="">Seleccione Cuando Predecir</option>
-                        <option value="Diariamente">Mañana</option>
-                        <option value="Semanalmente">Próxima Semana</option>
-                        <option value="Mensualmente">Próximo Mes</option>
-                    </select>
-                </form> */}
 
                 {/* Mostrar el buscador solo si hay un intervalo seleccionado */}
                 { (

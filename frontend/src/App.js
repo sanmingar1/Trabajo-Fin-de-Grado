@@ -6,9 +6,9 @@ import './css/ventas_fecha.css'
 import './css/numero_devoluciones.css'
 import './css/Clustering.css'
 import './css/PrediccionStock.css'
-import React, { useEffect, useRef,useState } from 'react';
+import React, { useState } from 'react';
 import VentasPorFecha from './ventas_fecha';
-import MetricasDashboard from './metricas_dashboard';
+// import MetricasDashboard from './metricas_dashboard';
 import SelectorGrafica from './grafica_grande';
 import NumeroDevoluciones from './numero_devoluciones';
 import ProductosMasVendidos from './productos_mas_vendidos';
