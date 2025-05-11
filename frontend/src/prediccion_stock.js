@@ -114,8 +114,6 @@ function PrediccionStock() {
             </div>
 
             <div className="boton-y-selector-prediccion">
-
-                {/* Mostrar el buscador solo si hay un intervalo seleccionado */}
                 { (
                     <div className="buscador-productos" ref={listaRef}>
                         <input
@@ -148,10 +146,10 @@ function PrediccionStock() {
             </div>
             {prediccion && (
                 <div className="resultado-prediccion">
-                    <h3>Resultados de la predicción:</h3>
-                    <h3>{"Predicción: "+(Math.trunc(prediccion.prediccion_futura * 100) / 100) + " kg"}</h3>
-                    <h3>{"MAE Error: "+(Math.trunc(prediccion.mae * 100) / 100) + " kg"}</h3>
-                    <h3>{"RMSE Error: "+(Math.trunc(prediccion.rmse * 100) / 100) + " kg"}</h3>
+                    <h3>{prediccion.producto}</h3>
+                    <h3>{"Mañana se venderán: "+(Math.trunc(prediccion.prediccion_futura * 100) / 100) + "  kg ± " + (Math.trunc(prediccion.mae * 100) / 100) +  " kg"}</h3>
+                    {/* <h3>{"MAE Error: "+(Math.trunc(prediccion.mae * 100) / 100) + " kg"}</h3> */}
+                    {/* <h3>{"RMSE Error: "+(Math.trunc(prediccion.rmse * 100) / 100) + " kg"}</h3> */}
 
                 </div>
             )}

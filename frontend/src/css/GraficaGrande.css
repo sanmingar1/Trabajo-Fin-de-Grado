@@ -44,7 +44,7 @@
 
 }
 .selectores-fecha-grafica-grande input[type="date"] {
-  padding: 8px 12px;
+  padding: 1vh 0.5vh;
   font-size: 2vh;
   border: 2px solid #ddd;
   border-radius: 6px;
@@ -52,6 +52,7 @@
   color: #333;
   transition: all 0.3s ease;
   margin-left:1vh;
+  margin-top:1vh;;
   outline: none;
   cursor: pointer;
 }
@@ -60,7 +61,7 @@
   /* width: 50%; */
   border-radius: 6px;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 1vh;
   background: #f8f8f8;
   font-size: 1em;
   cursor: pointer;
@@ -68,7 +69,7 @@
 }
 .selectores-fecha-grafica-grande button{
   padding: 1vh;
-  border-radius: 6px;
+  border-radius: 1vh;
   border: none;
   font-size: 0.8em;
   font-weight: bold;

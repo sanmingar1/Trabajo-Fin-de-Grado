@@ -53,7 +53,7 @@ function SelectorGrafica(){
                     {/* <option value='precio-medio-categoria'>Evolución Precio Medio Por Categoría</option> */}
                 </select>
             </form>
-            {tipoGrafica === 'productos_mas_vendidos' && (
+            {tipoGrafica !== ''  && (
                 <div className='selectores-fecha-grafica-grande'>
                 <form>
                     <button onClick={(e) => handleFechaInicio(e)}>Fecha Inicio</button>

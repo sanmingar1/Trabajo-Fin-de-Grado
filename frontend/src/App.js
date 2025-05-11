@@ -14,7 +14,7 @@ import NumeroDevoluciones from './numero_devoluciones';
 import ProductosMasVendidos from './productos_mas_vendidos';
 import EstacionalidadVentas from './estacionalidadVentas';
 import Clustering from './clustering';
-import PrediccionStock from './PrediccionStock'
+import PrediccionStock from './prediccion_stock'
 
 function App() {
 
