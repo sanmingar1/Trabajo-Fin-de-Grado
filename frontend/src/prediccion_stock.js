@@ -131,7 +131,7 @@ useEffect(() => {
         fetch("http://localhost:5000/api/prediccion_stock1", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ producto: productoSeleccionado, grafica: true }),
+            body: JSON.stringify({ producto: productoSeleccionado, grafica: true,y_pred: prediccion.y_pred }),
         })
         .then((res) => {
             if (!res.ok) throw new Error("Error al cargar gráfico");

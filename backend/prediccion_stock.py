@@ -90,14 +90,14 @@ def predecir_stock(params):
         fechas_y_test = np.array(fechas_y_test)
 
         if params.get('grafica') == True:
-        # --- 7. Graficar resultados ---
+            # --- 4.1. Graficar resultados ---
             p = figure(title=f"Predicción de Ventas para {producto_objetivo}",
                     x_axis_label='Fecha', y_axis_label='Kilos',
                     x_axis_type='datetime', width=800, height=400)
 
             # Línea de ventas reales
-            p.line(fechas_y_test.flatten(), y_test.flatten(), legend_label='Ventas reales', line_color='blue', line_width=2)
-
+            p.line(fechas_y_test.flatten(), y_test.flatten(), legend_label='Valor real', line_color='blue', line_width=2)
+            p.line(fechas_y_test.flatten(), np.array(params.get('y_pred')), legend_label='Predicción', line_color='red', line_width=2)
             # Convertir el gráfico a formato JSON compatible
             
             grafica = json.dumps(json_item(p,'contenedor'))
@@ -133,7 +133,8 @@ def predecir_stock(params):
             "producto": producto_objetivo,
             "mae": float(mae),  # Convertimos a float estándar para evitar errores de JSON
             "rmse": float(rmse),  # Convertimos a float estándar para evitar errores de JSON
-            "prediccion_futura": float(prediccion_futura) # Convertimos la predicción futura
+            "prediccion_futura": float(prediccion_futura), # Convertimos la predicción futura
+            "y_pred": y_pred.flatten().tolist()  # Convertimos a lista para JSON
         })
 
     except Exception as e:
