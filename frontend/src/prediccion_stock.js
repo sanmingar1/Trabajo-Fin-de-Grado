@@ -9,6 +9,9 @@ function PrediccionStock() {
     const [prediccion, setPrediccion] = useState(null);
     const [mostrarSugerencias, setMostrarSugerencias] = useState(false);
     const listaRef = useRef(null);
+    const [mostrarModalGrafico, setMostrarModalGrafico] = useState(false);
+    const contenedorGraficoRef = useRef(null);
+    const [graficoVentas, setGraficoVentas] = useState(null);
 
     // Cargar lista de productos desde el backend
     // useEffect(() => {
@@ -64,6 +67,21 @@ function PrediccionStock() {
         setMostrarSugerencias(false);
     };
 
+    // Mostrar gráfico de ventas
+    const mostrarGraficoVentas = (producto) => {
+        setGraficoVentas(producto);
+
+    };
+
+    useEffect(() => {
+    if (mostrarModalGrafico && graficoVentas && contenedorGraficoRef.current) {
+        contenedorGraficoRef.current.innerHTML = '';
+        window.Bokeh.embed.embed_item(graficoVentas, contenedorGraficoRef.current);
+    }
+    }, [mostrarModalGrafico, graficoVentas]);
+
+
+
     // Ocultar las sugerencias si se hace clic fuera del buscador
     useEffect(() => {
         const handleClickFuera = (e) => {
@@ -105,6 +123,43 @@ function PrediccionStock() {
             setLoadingPrediccion(false);
         }
     };
+
+
+    // Modal y Bokeh embebido sin bug visual
+useEffect(() => {
+    if (mostrarModalGrafico && productoSeleccionado) {
+        fetch("http://localhost:5000/api/prediccion_stock1", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ producto: productoSeleccionado, grafica: true }),
+        })
+        .then((res) => {
+            if (!res.ok) throw new Error("Error al cargar gráfico");
+            return res.json();
+        })
+        .then((graficoData) => {
+            setTimeout(() => {
+                if (contenedorGraficoRef.current) {
+                    contenedorGraficoRef.current.innerHTML = "";
+                    window.Bokeh.embed.embed_item(graficoData, contenedorGraficoRef.current);
+                }
+            }, 50); // Delay para asegurar que el DOM esté renderizado completamente
+        })
+        .catch((err) => {
+            console.error("Error al cargar el gráfico:", err);
+        });
+    }
+    }, [mostrarModalGrafico, productoSeleccionado]);
+
+    useEffect(() => {
+        if (mostrarModalGrafico) {
+            document.body.classList.add("modal-abierto");
+        } else {
+            document.body.classList.remove("modal-abierto");
+        }
+    }, [mostrarModalGrafico]);
+
+
 
     return (
         <div className="prediccion_stock">
@@ -150,6 +205,18 @@ function PrediccionStock() {
                     <h3>{"Mañana se venderán: "+(Math.trunc(prediccion.prediccion_futura * 100) / 100) + "  kg ± " + (Math.trunc(prediccion.mae * 100) / 100) +  " kg"}</h3>
                     {/* <h3>{"MAE Error: "+(Math.trunc(prediccion.mae * 100) / 100) + " kg"}</h3> */}
                     {/* <h3>{"RMSE Error: "+(Math.trunc(prediccion.rmse * 100) / 100) + " kg"}</h3> */}
+                    
+                   <button className="boton-mostrar-grafico"
+                    onClick={() => setMostrarModalGrafico(true)}>Mostrar Gráfico</button>
+
+                    {mostrarModalGrafico && (
+                    <div className="modal-overlay">
+                        <div className="modal-contenido">
+                            <button className="cerrar-modal" onClick={() => setMostrarModalGrafico(false)}>X</button>
+                            <div ref={contenedorGraficoRef}></div>
+                        </div>
+                    </div>
+                     )}
 
                 </div>
             )}

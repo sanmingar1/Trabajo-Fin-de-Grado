@@ -5,7 +5,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.optimizers import Adam
 from flask import jsonify
-
+import json
+from flask import Response
+from bokeh.embed import json_item
+from bokeh.plotting import figure
+from bokeh.document import Document
 
 
 
@@ -85,6 +89,20 @@ def predecir_stock(params):
         y_test = np.array(y_test)
         fechas_y_test = np.array(fechas_y_test)
 
+        if params.get('grafica') == True:
+        # --- 7. Graficar resultados ---
+            p = figure(title=f"Predicción de Ventas para {producto_objetivo}",
+                    x_axis_label='Fecha', y_axis_label='Kilos',
+                    x_axis_type='datetime', width=800, height=400)
+
+            # Línea de ventas reales
+            p.line(fechas_y_test.flatten(), y_test.flatten(), legend_label='Ventas reales', line_color='blue', line_width=2)
+
+            # Convertir el gráfico a formato JSON compatible
+            
+            grafica = json.dumps(json_item(p,'contenedor'))
+            return Response(grafica, mimetype='application/json')
+
         # --- 5. Construir y entrenar el modelo LSTM ---
         model = Sequential()
         model.add(LSTM(64, activation='tanh', input_shape=(window_size, X_train.shape[2])))
@@ -96,6 +114,8 @@ def predecir_stock(params):
         # --- 6. Predicción y evaluación ---
         y_pred = model.predict(X_test)
 
+
+        # Estimacion del error a partir del historico de errores que he tenido
         mae = mean_absolute_error(y_test, y_pred)
         rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
@@ -104,7 +124,8 @@ def predecir_stock(params):
         ultima_ventana = np.expand_dims(ultima_ventana, axis=0)  # forma: (1, window_size, n_features)
         prediccion_futura = model.predict(ultima_ventana)[0]
 
-
+        
+        
 
 
         #Convertir datos antes de enviar JSON
@@ -112,7 +133,7 @@ def predecir_stock(params):
             "producto": producto_objetivo,
             "mae": float(mae),  # Convertimos a float estándar para evitar errores de JSON
             "rmse": float(rmse),  # Convertimos a float estándar para evitar errores de JSON
-            "prediccion_futura": float(prediccion_futura)  # Convertimos la predicción futura
+            "prediccion_futura": float(prediccion_futura) # Convertimos la predicción futura
         })
 
     except Exception as e:

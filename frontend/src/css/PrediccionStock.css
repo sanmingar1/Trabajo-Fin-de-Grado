@@ -111,3 +111,66 @@
     margin: 0; /* Elimina márgenes innecesarios */
     align-self: flex-start; /* Asegura que se alinee correctamente */
 }
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    width: 90vh;
+    height: 45vh;
+    overflow: auto;
+    position: relative;
+    isolation: isolate; /* ✅ Evita que herede efectos del padre */
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+}
+
+body.modal-abierto *:hover {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+
+.boton-mostrar-grafico {
+    background-color: #2563eb; /* azul intenso */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-mostrar-grafico:hover {
+    background-color: #1d4ed8; /* azul más oscuro */
+    transform: scale(1.05);
+}
+
+.boton-mostrar-grafico:active {
+    transform: scale(0.98);
+}
