@@ -1,0 +1,86 @@
+/*CONTENEDOR GLOBAL*/
+.contenedor_eda{
+  font-family: 'Arial', sans-serif;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 7vh;
+  /* margin-left:100vh; */
+  height: 100%;
+  width:100%;
+  /* border: 3px solid rgb(0, 0, 0); */
+}
+
+
+/* CONTENEDOR QUE TIENE APP y SELECTOR GRÁFICA */
+.columna_izquierda{
+  
+  display:flex;
+  flex-direction: column;
+  width:75%;
+  height: 100%;
+  /* margin-left:5vh; */
+  /* border: 3px solid rgb(255, 0, 0); */
+}
+
+
+
+/*CONTENEDOR APP QUE TIENE VENTAS POR FECHA Y METRICAS DASHBOARD*/
+.columna_izquierda_superior{
+  display: flex; /* Permite manejar contenido interno con flexbox */
+  justify-content: space-evenly;
+  gap: 5vh;
+  width: 100%; /* Ancho relativo al contenedor padre */
+  height: 30%; /* Altura fija */
+  margin-bottom: 5vh;
+  /* border: 3px solid #00f9dc;  */
+}
+
+.selector_fecha{
+  background: #ffffff;
+  /* border: 3px solid black; */
+  align-items: center;
+  border-radius: 8px; 
+  display: flex;
+  justify-content: center;
+
+}
+
+.selector_fecha input[type="date"] {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+  cursor: pointer;
+}
+
+.columna_izquierda_inferior{
+  display: flex; /* Permite manejar contenido interno con flexbox */
+  justify-content: space-evenly;
+  gap: 2vh;
+  width: 100%; /* Ancho relativo al contenedor padre */
+  height: 30%; /* Altura fija */
+  margin-bottom: 5vh;
+  /* border: 3px solid #00f9dc;  */
+}
+
+
+.columna_derecha{
+  /* border: 3px solid rgb(255, 0, 0); */
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  gap: 2vh;
+  /* padding: 1vh; */
+  height:100%;
+}
+
+
+
+
+
+

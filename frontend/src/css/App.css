@@ -1,85 +1,40 @@
-/*CONTENEDOR GLOBAL*/
-.contenedor_global{
-  font-family: 'Arial', sans-serif;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 3vh;
-  /* margin-left:100vh; */
-  /* width:80%; */
-  /* border: 3px solid rgb(211, 222, 0); */
+.contenedor_global {
+  font-family: Arial, sans-serif;
+  padding-top: 5vh; /* espacio para que no quede tapado por la barra fija */
 }
 
-
-/* CONTENEDOR QUE TIENE APP y SELECTOR GRÁFICA */
-.columna_izquierda{
-  
-  display:flex;
-  flex-direction: column;
-  width:75%;
-  height: 100%;
-  /* margin-left:5vh; */
-  /* border: 3px solid rgb(255, 0, 0); */
-}
-
-
-
-/*CONTENEDOR APP QUE TIENE VENTAS POR FECHA Y METRICAS DASHBOARD*/
-.columna_izquierda_superior{
-  display: flex; /* Permite manejar contenido interno con flexbox */
-  justify-content: space-evenly;
-  gap: 5vh;
-  width: 100%; /* Ancho relativo al contenedor padre */
-  height: 30%; /* Altura fija */
-  margin-bottom: 5vh;
-  /* border: 3px solid #00f9dc;  */
-}
-
-.selector_fecha{
-  background: #ffffff;
-  /* border: 3px solid black; */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5vh;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center; /* centramos horizontalmente */
   align-items: center;
-  border-radius: 8px; 
-  display: flex;
-  justify-content: center;
-
+  gap: 2vw; /* espacio entre botones */
+  padding: 0 2vw;
+  box-shadow: 0 0.1vh 0.3vh rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
-.selector_fecha input[type="date"] {
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  background-color: #f8f9fa;
-  color: #333;
-  transition: all 0.3s ease;
-  outline: none;
+nav button {
+  background: none;
+  border: none;
+  font-weight: 600;
   cursor: pointer;
+  padding: 0.5vh 1vh;
+  color: #333;
+  border-radius: 0.3vh;
+  transition: background-color 0.2s ease;
 }
 
-.columna_izquierda_inferior{
-  display: flex; /* Permite manejar contenido interno con flexbox */
-  justify-content: space-evenly;
-  gap: 2vh;
-  width: 100%; /* Ancho relativo al contenedor padre */
-  height: 30%; /* Altura fija */
-  margin-bottom: 5vh;
-  /* border: 3px solid #00f9dc;  */
+nav button:hover {
+  background-color: #ddd;
 }
 
-
-.columna_derecha{
-  /* border: 3px solid rgb(255, 0, 0); */
-  display: flex;
-  flex-direction: column; 
-  justify-content: space-between;
-  gap: 2vh;
-  /* padding: 1vh; */
-  height:100%;
+nav button.activo {
+  background-color: #007bff;
+  color: white;
 }
-
-
-
-
-
-

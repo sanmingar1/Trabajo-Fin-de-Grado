@@ -24,7 +24,7 @@ def crear_prueba_grafica_grande(params):
         # Preparar los datos para Bokeh
         source = ColumnDataSource(daily_sales)
         # Crear el gráfico de barras
-        p = figure(x_axis_type="datetime", title="Total Ventas Diarias (kg)", height=400, width=600,
+        p = figure(x_axis_type="datetime", title="Total Ventas Diarias (kg)", height=400, width=800,
                 x_axis_label="Fecha", y_axis_label="Cantidad Vendida (kg)")
 
         p.line(x='Date', y='Quantity Sold (kilo)', width=0.9, source=source, color="dodgerblue",line_width=3)
@@ -45,7 +45,7 @@ def crear_prueba_grafica_grande(params):
 
         # Crear el gráfico de barras
         p = figure(x_range=product_sales['Item Name'], title="Top 10 Productos Más Vendidos (kg)", 
-                    height=400, width=600, x_axis_label="Producto", y_axis_label="Cantidad Vendida (kg)")
+                    height=400, width=800, x_axis_label="Producto", y_axis_label="Cantidad Vendida (kg)")
 
         p.vbar(x='Item Name', top='Quantity Sold (kilo)', width=0.9, source=source, color="forestgreen")
 
@@ -66,7 +66,7 @@ def crear_prueba_grafica_grande(params):
         source = ColumnDataSource(hourly_sales)
 
         # Crear el histograma
-        p = figure(title="Distribución de Ventas por Hora (kg)", height=400, width=600, 
+        p = figure(title="Distribución de Ventas por Hora (kg)", height=400, width=800, 
                     x_axis_label="Hora del Día", y_axis_label="Cantidad Vendida (kg)")
 
         p.vbar(x='Hour', top='Quantity Sold (kilo)', width=0.9, source=source, color="coral")

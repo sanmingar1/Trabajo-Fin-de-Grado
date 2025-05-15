@@ -1,9 +1,10 @@
 /* GRÁFICA GRANDE */
 
 .columna_izquierda_inferior-grafica-selector{
-    width: 60%;
+    width: 100%;
     /* border: 3px solid rgb(255, 0, 247); */
     /* margin:2.5 vh; */
+
     display: flex;
     justify-content: left;
     flex-direction:row ;
@@ -15,10 +16,10 @@
   .columna_izquierda_inferior_grafica {
     display: flex;
     justify-content: center;
-    align-items: left;
-    width: 55vh;
+    align-items: center;
+    width: 100vh;
     height: 50vh;
-    margin-left: 1vh;
+    margin-left: 10vh;
     /* padding: 1vh; */
     /* border: 3px solid #e5ff00; */
     border-radius: 8px;

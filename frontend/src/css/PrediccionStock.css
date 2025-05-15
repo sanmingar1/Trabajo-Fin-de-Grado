@@ -1,176 +1,209 @@
+/* Contenedor principal: dos columnas, centrado y responsivo */
 .prediccion_stock {
-    width: 33%;
-    margin-right: 3vh;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 3vh;
-    transition: transform 0.3s ease-in-out;
+  width: 90vw;
+  height: 70vh;
 
-    /* border:1px solid #f70000; */
-    
+  margin: 3vh auto;
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  padding: 3vh 4vw;
+  gap: 3vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  
 }
 
-.prediccion_stock:hover {
-    transform: scale(1.02);
-    /* border: 2px solid green; */
+/* Columna izquierda: área de predicción */
+.prediccion_izquierda {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8vh;
+  overflow-y: auto;
 }
 
-.prediccion_stock_arriba{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 1px solid black; */
+/* Header de predicción */
+.texto-prediccion h2 {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.2vh;
+  border-left: 6px solid #27ae60;
+  padding-left: 12px;
+  user-select: none;
+  
 }
 
+/* Contenedor buscador y botones */
 .boton-y-selector-prediccion {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 320px;
+  width: 100%;
+  
 }
 
-.prediccion_stock h2 {
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1vh;
-    margin-right: 2vh;
-
+/* Input buscador */
+.buscador-productos input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.05em;
+  border-radius: 12px;
+  border: 2px solid #d1d8e0;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.prediccion_stock h3 {
-    font-size: 1em;
-    font-weight: bold;
-    color: #555;
+.buscador-productos input:focus {
+  border-color: #27ae60;
+  box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
 }
 
+/* Lista de sugerencias */
+.lista-productos {
+  max-height: 22vh;
+  overflow-y: auto;
+  margin: 6px 0 0 0;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  background: #fafafa;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: absolute;
+  width: 320px;
+  z-index: 20;
+}
+
+.lista-productos li {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.lista-productos li:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+/* Producto seleccionado */
+.boton-y-selector-prediccion p {
+  font-size: 1em;
+  color: #555;
+  margin: 0;
+  user-select: none;
+  
+}
+
+/* Botón generar predicción */
 .boton-y-selector-prediccion button {
-    border-radius: 6px;
-    border: none;
-    padding: 8px;
-    font-size: 1em;
-    font-weight: bold;
-    background: #4CAF50;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  border-radius: 12px;
+  border: none;
+  padding: 14px 0;
+  font-size: 1.15em;
+  font-weight: 700;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.45);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  
 }
 
-.boton-y-selector-prediccion button:hover {
-    background: #45a049;
+.boton-y-selector-prediccion button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  box-shadow: none;
+  
 }
 
-.boton-y-selector-prediccion select {
-    /* width: 80%; */
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    padding: 5px;
-    background: #f8f8f8;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.boton-y-selector-prediccion button:not(:disabled):hover {
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  box-shadow: 0 8px 16px rgba(39, 174, 96, 0.6);
 }
 
-.boton-y-selector-prediccion select:hover {
-    border-color: #77c21b;
-}
-
-.texto-prediccion {
-    display: flex;
-    flex-direction: column;
-    border-left: 4px solid #77c21b;
-    padding-left: 15px;
-    font-size: 1em;
-    color: #444;
-    /* border: 1px solid green; */
-}
-
+/* Resultados predicción */
 .resultado-prediccion {
-    display: flex;
+  margin-top: 3vh;
+  padding: 24px;
+  border-radius: 16px;
+  background: #f5f9f7;
+  box-shadow: inset 0 0 10px rgba(39, 174, 96, 0.15);
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1.1em;
+  user-select: none;
+  line-height: 1.4;
+  max-height: 40vh;
+  overflow-y: auto;
+  width:90%;
+  
+}
+
+/* Columna derecha: área del gráfico */
+.prediccion_derecha {
+  flex: 1 1 50%;
+  background: #f9fafd;
+  border-radius: 16px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+  user-select: none;
+}
+
+/* Contenedor del gráfico */
+.contenedor_grafico {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+/* Scroll suave para contenedores con overflow */
+.prediccion_izquierda,
+.resultado-prediccion,
+.prediccion_derecha {
+  scrollbar-width: thin;
+  scrollbar-color: #27ae60 #ecf0f1;
+}
+
+.prediccion_izquierda::-webkit-scrollbar,
+.resultado-prediccion::-webkit-scrollbar,
+.prediccion_derecha::-webkit-scrollbar {
+  width: 8px;
+}
+
+.prediccion_izquierda::-webkit-scrollbar-thumb,
+.resultado-prediccion::-webkit-scrollbar-thumb,
+.prediccion_derecha::-webkit-scrollbar-thumb {
+  background-color: #27ae60;
+  border-radius: 10px;
+}
+
+/* Lista de productos también para pantallas pequeñas */
+@media (max-width: 768px) {
+  .prediccion_stock {
     flex-direction: column;
-    align-items: center;  /* Centra los elementos en el eje cruzado */
-    justify-content: center; /* Centra los elementos en el eje principal */
-    margin-top: 3vh;
-    gap: 10px;
-    width: 80%;
-    height: 50%;
-    border-radius: 12px;
-    /* background-color: #e3e1e1; */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Agrega un poco de espacio interno */
-}
-
-/* Estiliza los títulos dentro de resultado-prediccion */
-.resultado-prediccion h3 {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 0; /* Elimina márgenes innecesarios */
-    align-self: flex-start; /* Asegura que se alinee correctamente */
-}
-
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-contenido {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    width: 90vh;
-    height: 45vh;
-    overflow: auto;
+    height: auto;
+    max-height: none;
+  }
+  .prediccion_izquierda,
+  .prediccion_derecha {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+  .lista-productos {
+    width: 100% !important;
     position: relative;
-    isolation: isolate; /* ✅ Evita que herede efectos del padre */
-}
-
-.cerrar-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    color: #444;
-    cursor: pointer;
-}
-
-body.modal-abierto *:hover {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-}
-
-
-.boton-mostrar-grafico {
-    background-color: #2563eb; /* azul intenso */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.boton-mostrar-grafico:hover {
-    background-color: #1d4ed8; /* azul más oscuro */
-    transform: scale(1.05);
-}
-
-.boton-mostrar-grafico:active {
-    transform: scale(0.98);
+  }
 }
