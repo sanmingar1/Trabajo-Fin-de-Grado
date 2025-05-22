@@ -27,19 +27,19 @@ function App() {
           className={componenteActual === 'Eda' ? 'activo' : ''}
           onClick={() => setComponenteActual('Eda')}
         >
-          Eda
+          Información Relevante
         </button>
         <button
           className={componenteActual === 'Stock' ? 'activo' : ''}
           onClick={() => setComponenteActual('Stock')}
         >
-          Stock
+          Predicción de Inventario
         </button>
         <button
           className={componenteActual === 'Clustering' ? 'activo' : ''}
           onClick={() => setComponenteActual('Clustering')}
         >
-          Clustering
+          Grupos de Productos
         </button>
       </nav>
 
