@@ -1,7 +1,7 @@
 import React,{useEffect,useRef,useState} from "react";
 
 function SelectorGrafica(){
-    let [tipoGrafica,setTipoGrafica] = useState('')
+    let [tipoGrafica,setTipoGrafica] = useState('ventas_diarias_totales')
     let [fechaInicio,setFechaInicio] = useState('2020-07-01')
     let [fechaFin,setFechaFin] = useState('2023-06-30')
     const contenedorRef4 = useRef(null); // Referencia al cuarto contenedor
@@ -45,7 +45,7 @@ function SelectorGrafica(){
                 value = {tipoGrafica}
                 onChange={(e) => setTipoGrafica(e.target.value)}
                 required>
-                    <option value=''>Selecciona Gráfica</option>
+                    {/* <option value=''>Selecciona Gráfica</option> */}
                     <option value='ventas_diarias_totales'>Ventas Diarias Totales</option>
                     <option value='productos_mas_vendidos'>Productos Más Vendidos</option>
                     <option value='total-ventas-hora'>Total Kilos Vendidos Por Hora</option>
