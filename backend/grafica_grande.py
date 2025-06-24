@@ -5,6 +5,8 @@ from bokeh.plotting import figure, show
 import pandas as pd
 from bokeh.models import ColumnDataSource
 from bokeh.layouts import column
+from bokeh.models import HoverTool
+
 
 def crear_prueba_grafica_grande(params):
     df = pd.read_csv('data/dataset_formateado.csv')
@@ -26,6 +28,18 @@ def crear_prueba_grafica_grande(params):
         # Crear el gráfico de barras
         p = figure(x_axis_type="datetime", title="Total Ventas Diarias (kg)", height=400, width=800,
                 x_axis_label="Fecha", y_axis_label="Cantidad Vendida (kg)")
+                
+
+        hover = HoverTool(
+            tooltips=[
+                ("Fecha", "@Date{%F}"),
+                ("Cantidad", "@{Quantity Sold (kilo)}{0.00} kg")
+            ],
+            formatters={'@Date': 'datetime'},
+            mode='vline'
+        )
+        p.add_tools(hover)
+
 
         p.line(x='Date', y='Quantity Sold (kilo)', width=0.9, source=source, color="dodgerblue",line_width=3)
         p.xgrid.grid_line_color = None
@@ -47,7 +61,16 @@ def crear_prueba_grafica_grande(params):
         p = figure(x_range=product_sales['Item Name'], title="Top 10 Productos Más Vendidos (kg)", 
                     height=400, width=800, x_axis_label="Producto", y_axis_label="Cantidad Vendida (kg)")
 
-        p.vbar(x='Item Name', top='Quantity Sold (kilo)', width=0.9, source=source, color="forestgreen")
+        hover = HoverTool(
+            tooltips=[
+                ("Producto", "@{Item Name}"),
+                ("Cantidad", "@{Quantity Sold (kilo)}{0.00} kg")
+            ]
+        )
+        p.add_tools(hover)
+
+
+        p.vbar(x='Item Name', top='Quantity Sold (kilo)', width=0.9, source=source, color="forestgreen", hover_fill_color="darkgreen")
 
         p.xgrid.grid_line_color = None
         p.y_range.start = 0
@@ -68,8 +91,17 @@ def crear_prueba_grafica_grande(params):
         # Crear el histograma
         p = figure(title="Distribución de Ventas por Hora (kg)", height=400, width=800, 
                     x_axis_label="Hora del Día", y_axis_label="Cantidad Vendida (kg)")
+        
+        hover = HoverTool(
+            tooltips=[
+                ("Hora", "@Hour"),
+                ("Cantidad", "@{Quantity Sold (kilo)}{0.00} kg")
+            ]
+        )
+        p.add_tools(hover)
 
-        p.vbar(x='Hour', top='Quantity Sold (kilo)', width=0.9, source=source, color="coral")
+
+        p.vbar(x='Hour', top='Quantity Sold (kilo)', width=0.9, source=source, color="coral", hover_fill_color="#CD5C45FF")
 
         p.xgrid.grid_line_color = None
         p.y_range.start = 0

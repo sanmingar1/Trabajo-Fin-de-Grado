@@ -19,6 +19,9 @@ REM Actualizar pip y luego instalar dependencias
 pip install --upgrade pip
 pip install -r requirements.txt
 
+flask run
+
+
 REM === FRONTEND ===
 echo Instalando entorno frontend...
 cd /d "%BASE_DIR%frontend"
